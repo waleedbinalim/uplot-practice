@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import uPlot from "uplot";
 import UplotReact from "uplot-react";
 import "uplot/dist/uPlot.min.css";
+import { clickZoomPlugin } from "./plot-plugin-one";
 
 const ChartComponent: React.FC = () => {
   const fmt = uPlot.fmtDate("{HH}:{mm}");
@@ -31,6 +32,7 @@ const ChartComponent: React.FC = () => {
         bind: { dblclick: () => null },
         sync: { key: "metric-data" },
       },
+      plugins: [clickZoomPlugin()],
       // plugins: [clickZoomPlugin(), customPlugin()],
       axes: [{ font: "9px Arial", space: 50 }, { font: "10px Arial" }],
     }),
