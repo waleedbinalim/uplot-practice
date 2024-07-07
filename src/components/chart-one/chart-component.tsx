@@ -40,7 +40,7 @@ const ChartComponent: React.FC = () => {
   );
 
   return (
-    <>
+    <div className="grid place-content-center">
       <UplotReact
         options={options}
         data={[
@@ -48,7 +48,7 @@ const ChartComponent: React.FC = () => {
           [6, 5, 4, 3, 2, 1],
         ]}
       />
-    </>
+    </div>
   );
 };
 
