@@ -1,4 +1,8 @@
-import { ChartComponent, GraphControlComponent } from "./components";
+import {
+  ChartComponent,
+  GraphControlComponent,
+  TableComponent,
+} from "./components";
 
 function App() {
   return (
@@ -11,6 +15,10 @@ function App() {
 
       <div className="my-8">
         <ChartComponent />
+      </div>
+
+      <div className="my-2 pb-8">
+        <TableComponent />
       </div>
     </div>
   );
