@@ -1,5 +1,6 @@
 import {
   ChartComponent,
+  ChartTwoComponent,
   GraphControlComponent,
   TableComponent,
 } from "./components";
@@ -15,6 +16,16 @@ function App() {
 
       <div className="my-8">
         <ChartComponent />
+      </div>
+
+      <div className="my-8" />
+
+      <div>
+        <GraphControlComponent />
+      </div>
+
+      <div className="my-8">
+        <ChartTwoComponent />
       </div>
 
       <div className="my-2 pb-8">
