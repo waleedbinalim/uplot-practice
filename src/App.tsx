@@ -3,6 +3,7 @@ import {
   ChartComponent,
   ChartTwoComponent,
   GraphControlComponent,
+  Sidebar,
   TableComponent,
 } from "./components";
 import { appRoutes } from "./utils";
@@ -10,32 +11,7 @@ import { appRoutes } from "./utils";
 function App() {
   return (
     <section className="flex gap-2">
-      <nav className="w-1/6 bg-blue-300 min-h-screen">
-        <p className="font-bold text-center">uPlot Demos</p>
-
-        <ul>
-          <Link
-            className="mt-2 hover:bg-blue-400 px-4 py-2 mx-1 rounded-md block"
-            to={appRoutes.chartOne}
-          >
-            Chart one
-          </Link>
-
-          <Link
-            className="mt-2 hover:bg-blue-400 px-4 py-2 mx-1 rounded-md block"
-            to={appRoutes.chartTwo}
-          >
-            Chart two
-          </Link>
-
-          <Link
-            className="mt-2 hover:bg-blue-400 px-4 py-2 mx-1 rounded-md block"
-            to={appRoutes.table}
-          >
-            Table
-          </Link>
-        </ul>
-      </nav>
+      <Sidebar />
 
       <Routes>
         <Route path="/" element={<>hello</>} />
