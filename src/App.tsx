@@ -1,37 +1,84 @@
+import { Route, Routes, Link } from "react-router-dom";
 import {
   ChartComponent,
   ChartTwoComponent,
   GraphControlComponent,
   TableComponent,
 } from "./components";
+import { appRoutes } from "./utils";
 
 function App() {
   return (
-    <div className="p-4">
-      <h1 className="font-bold text-2xl text-center mb-2">uPlot Demo Repo</h1>
+    <section className="flex gap-2">
+      <nav className="w-1/6 bg-blue-300 min-h-screen">
+        <p className="font-bold text-center">uPlot Demos</p>
 
-      <div>
-        <GraphControlComponent />
-      </div>
+        <ul>
+          <Link
+            className="mt-2 hover:bg-blue-400 px-4 py-2 mx-1 rounded-md block"
+            to={appRoutes.chartOne}
+          >
+            Chart one
+          </Link>
 
-      <div className="my-8">
-        <ChartComponent />
-      </div>
+          <Link
+            className="mt-2 hover:bg-blue-400 px-4 py-2 mx-1 rounded-md block"
+            to={appRoutes.chartTwo}
+          >
+            Chart two
+          </Link>
 
-      <div className="my-8" />
+          <Link
+            className="mt-2 hover:bg-blue-400 px-4 py-2 mx-1 rounded-md block"
+            to={appRoutes.table}
+          >
+            Table
+          </Link>
+        </ul>
+      </nav>
 
-      <div>
-        <GraphControlComponent />
-      </div>
+      <Routes>
+        <Route path="/" element={<>hello</>} />
+        <Route
+          path={appRoutes.chartOne}
+          element={
+            <>
+              <div>
+                <GraphControlComponent />
+              </div>
+              <div className="my-8">
+                <ChartComponent />
+              </div>
+            </>
+          }
+        />
 
-      <div className="my-8">
-        <ChartTwoComponent />
-      </div>
+        <Route
+          path={appRoutes.chartTwo}
+          element={
+            <>
+              <div>
+                <GraphControlComponent />
+              </div>
+              <div className="my-8">
+                <ChartTwoComponent />
+              </div>
+            </>
+          }
+        />
 
-      <div className="my-2 pb-8">
-        <TableComponent />
-      </div>
-    </div>
+        <Route
+          path={appRoutes.table}
+          element={
+            <>
+              <div className="my-2 pb-8">
+                <TableComponent />
+              </div>
+            </>
+          }
+        />
+      </Routes>
+    </section>
   );
 }
 
