@@ -276,13 +276,6 @@ export const timeSliderPlugin = () => {
       end: new Date(endDate),
     });
 
-    console.log(
-      intervalToDuration({
-        start: new Date(startDate),
-        end: new Date(endDate),
-      })
-    );
-
     const mins = `${minutes ?? 0}`.padStart(2, "0");
     const secs = `${seconds}`.padStart(2, "0");
 

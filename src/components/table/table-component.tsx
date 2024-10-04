@@ -27,10 +27,10 @@ const TablePage: React.FC = () => {
         />
       ),
       cell: (item) => {
-        console.clear();
-        console.log(item.row.id);
-        console.log(item.row.original);
-        console.log(item.row.getIsSelected());
+        // console.clear();
+        // console.log(item.row.id);
+        // console.log(item.row.original);
+        // console.log(item.row.getIsSelected());
 
         return (
           <input
