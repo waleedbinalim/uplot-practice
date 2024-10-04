@@ -42,18 +42,8 @@ const ChartThreeComponent: React.FC = () => {
 
   return (
     <>
-      <h1 className="font-bold text-xl">Click Plugin Demo</h1>
-      <p className="opacity-80 text-sm">
-        clicking on any point in the graph will draw an outline/tooltip around
-        it
-      </p>
-
-      <div className="opacity-80 text-sm">
-        Pending work:
-        <ul>
-          <li>Correct tooltip color with the graph color</li>
-        </ul>
-      </div>
+      <h1 className="font-bold text-xl">Range Plugin Demo</h1>
+      <p className="opacity-80 text-sm"></p>
 
       <div className="grid place-content-center ">
         <div className="w-[800px] overflow-hidden">

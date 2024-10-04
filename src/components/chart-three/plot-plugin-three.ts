@@ -143,27 +143,23 @@ export const panGraphPlugin = () => {
           const left1 = e.clientX;
           const dx = xUnitsPerPx * (left1 - left0);
 
-          // TO PREVENT EXCEEDING RIGHT IF LAST POINT IS PRESENT
           const newMaxX = scXMax0 - dx;
           const outOfBoundsRight =
-            newMaxX > Math.max(...u.data[0]) && Math.sign(dx) === -1;
-          if (outOfBoundsRight) return;
+            newMaxX >= Math.max(...u.data[0]) && Math.sign(dx) === -1;
+          if (outOfBoundsRight) return; // TO PREVENT EXCEEDING RIGHT IF LAST POINT IS PRESENT
 
-          // TO PREVENT EXCEEDING LEFT IF FIRST POINT IS PRESENT
           const newMinX = scXMin0 - dx;
           const outOfBoundsLeft =
-            Math.sign(dx) === 1 && newMinX > Math.min(...u.data[0]);
-          // ^^^ FUTURE REFERENCE: THE SIGN < has been changed to > which fixes the drag. I will look into why this behaviour is different when compared to metric data graphs
-          // POSSIBLE REASONS: Graph is Ordinal which messes up the min and max
-          if (outOfBoundsLeft) return;
+            Math.sign(dx) === 1 && newMinX <= Math.min(...u.data[0]); // In some cases the sign might need to be reversed based on a project i worked on, maybe if graph is ordinal
+
+          if (outOfBoundsLeft) return; // TO PREVENT EXCEEDING LEFT IF FIRST POINT IS PRESENT
 
           const plots = uPlot.sync(chartThreeKey).plots;
           plots.forEach((p) => {
             p.setScale("x", { min: scXMin0 - dx, max: scXMax0 - dx });
           });
 
-          // FOR SINGULAR DRAG
-          // u.setScale("x", { min: scXMin0 - dx, max: scXMax0 - dx });
+          // u.setScale("x", { min: scXMin0 - dx, max: scXMax0 - dx }); // FOR SINGULAR DRAG
         }
 
         // eslint-disable-next-line no-inner-declarations
@@ -192,24 +188,9 @@ export const panGraphPlugin = () => {
           });
         },
       ],
-      setCursor: [
-        (u: uPlot) => {
-          const c = u.cursor;
-          if (dataIdx != c.idx) dataIdx = c.idx as number | null;
-        },
-      ],
-      setSeries: [
-        (_u: uPlot, sidx: number | null) => {
-          if (seriesIdx != sidx) seriesIdx = sidx;
-        },
-      ],
-      setScale: [
-        (_u: uPlot, key: string) => {
-          if (key == "x") {
-            //
-          }
-        },
-      ],
+      setCursor: [(_u: uPlot) => {}],
+      setSeries: [(_u: uPlot, _sidx: number | null) => {}],
+      setScale: [(_u: uPlot, _key: string) => {}],
     },
   };
 };
