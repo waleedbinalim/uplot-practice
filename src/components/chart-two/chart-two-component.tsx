@@ -3,6 +3,7 @@ import uPlot from "uplot";
 import UplotReact from "uplot-react";
 import "uplot/dist/uPlot.min.css";
 import { clickZoomPlugin, selectPointPlugin } from "./plot-plugin-two";
+import { chartTwoMockData } from "./chart-two.constants";
 
 const ChartTwoComponent: React.FC = () => {
   const fmt = uPlot.fmtDate("{HH}:{mm}");
@@ -79,13 +80,7 @@ const ChartTwoComponent: React.FC = () => {
         <div className="w-[800px] overflow-hidden">
           <UplotReact
             options={options}
-            data={[
-              [0, 1, 2, 3, 4, 5, 6],
-              [6, 5, 4, 3, 2, 1],
-              [6, 4, 5, 10, 11, 0].reverse(),
-              [11, 11, 11, 11, 11, 11].reverse(),
-              [0, 0, 0, 0, 0, 0].reverse(),
-            ]}
+            data={chartTwoMockData as uPlot.AlignedData}
           />
         </div>
       </div>
