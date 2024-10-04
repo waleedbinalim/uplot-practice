@@ -1,6 +1,7 @@
-import { Route, Routes, Link } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import {
   ChartComponent,
+  ChartThreeComponent,
   ChartTwoComponent,
   GraphControlComponent,
   Sidebar,
@@ -38,6 +39,20 @@ function App() {
               </div>
               <div className="my-8">
                 <ChartTwoComponent />
+              </div>
+            </>
+          }
+        />
+
+        <Route
+          path={appRoutes.chartThree}
+          element={
+            <>
+              <div>
+                <GraphControlComponent />
+              </div>
+              <div className="my-8">
+                <ChartThreeComponent />
               </div>
             </>
           }

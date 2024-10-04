@@ -24,6 +24,13 @@ const Sidebar: React.FC = () => {
 
         <Link
           className="mt-2 hover:bg-blue-400 px-4 py-2 mx-1 rounded-md block"
+          to={appRoutes.chartThree}
+        >
+          Chart three
+        </Link>
+
+        <Link
+          className="mt-2 hover:bg-blue-400 px-4 py-2 mx-1 rounded-md block"
           to={appRoutes.table}
         >
           Table

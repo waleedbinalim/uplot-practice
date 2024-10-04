@@ -2,9 +2,10 @@ import React, { useMemo } from "react";
 import uPlot from "uplot";
 import UplotReact from "uplot-react";
 import "uplot/dist/uPlot.min.css";
-import { clickZoomPlugin, selectPointPlugin } from "./plot-plugin-two";
+import { clickZoomPlugin, panGraphPlugin } from "./plot-plugin-three";
+import { chartThreeKey, chartThreeMockData } from "./chart-three.constants";
 
-const ChartTwoComponent: React.FC = () => {
+const ChartThreeComponent: React.FC = () => {
   const fmt = uPlot.fmtDate("{HH}:{mm}");
 
   const options = useMemo<uPlot.Options>(
@@ -22,27 +23,6 @@ const ChartTwoComponent: React.FC = () => {
           spanGaps: true,
           points: { show: true, size: 8 },
         },
-        {
-          label: `two`,
-          width: 3,
-          stroke: "red",
-          spanGaps: true,
-          points: { show: true, size: 8 },
-        },
-        {
-          label: `three`,
-          width: 3,
-          stroke: "green",
-          spanGaps: true,
-          points: { show: true, size: 8 },
-        },
-        {
-          label: `four`,
-          width: 3,
-          stroke: "yellow",
-          spanGaps: true,
-          points: { show: true, size: 8 },
-        },
       ],
       legend: { show: false },
       focus: { alpha: 0.3 },
@@ -51,9 +31,9 @@ const ChartTwoComponent: React.FC = () => {
         drag: { x: false, y: false },
         focus: { prox: 20 },
         bind: { dblclick: () => null },
-        sync: { key: "metric-data" },
+        sync: { key: chartThreeKey },
       },
-      plugins: [clickZoomPlugin(), selectPointPlugin()],
+      plugins: [clickZoomPlugin(), panGraphPlugin()],
 
       axes: [{ font: "9px Arial", space: 50 }, { font: "10px Arial" }],
     }),
@@ -79,13 +59,7 @@ const ChartTwoComponent: React.FC = () => {
         <div className="w-[800px] overflow-hidden">
           <UplotReact
             options={options}
-            data={[
-              [0, 1, 2, 3, 4, 5, 6],
-              [6, 5, 4, 3, 2, 1],
-              [6, 4, 5, 10, 11, 0].reverse(),
-              [11, 11, 11, 11, 11, 11].reverse(),
-              [0, 0, 0, 0, 0, 0].reverse(),
-            ]}
+            data={chartThreeMockData as uPlot.AlignedData}
           />
         </div>
       </div>
@@ -93,4 +67,4 @@ const ChartTwoComponent: React.FC = () => {
   );
 };
 
-export default ChartTwoComponent;
+export default ChartThreeComponent;
