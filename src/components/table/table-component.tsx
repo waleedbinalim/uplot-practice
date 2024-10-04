@@ -50,9 +50,11 @@ const TablePage: React.FC = () => {
         return (
           <>
             <div>
-              <p className="text-[12px] font-bold">Electrometer Alert</p>
+              <p className="text-[12px] font-bold">
+                ALERT {Math.floor(Math.random() * 100)}
+              </p>
               <p className="text-[8px]">
-                <span className="text-[#D1AD78]">PG&E</span> •{" "}
+                <span className="text-[#D1AD78]">subhead</span> •{" "}
                 {info.row.original.id}
               </p>
             </div>
@@ -70,11 +72,11 @@ const TablePage: React.FC = () => {
         return (
           <>
             <div className="flex gap-[12px]">
-              <button className="border-btnBorder h-[32px] w-[68px] cursor-pointer rounded-md border px-2 py-2 text-[10px] text-radio-button hover:bg-radio-button/10">
-                Pole View
+              <button className="border-btnBorder h-[32px] w-[68px] cursor-pointer rounded-md border px-2 py-2 text-[10px] text-radio-button hover:bg-radio-button/10 bg-green-300">
+                View
               </button>
-              <button className="border-btnBorder h-[32px] w-[68px] cursor-pointer rounded-md border px-2 py-2 text-[10px] text-radio-button hover:bg-radio-button/10">
-                Map View
+              <button className="border-btnBorder h-[32px] w-[68px] cursor-pointer rounded-md border px-2 py-2 text-[10px] text-radio-button hover:bg-radio-button/10 bg-red-300">
+                Dismiss
               </button>
             </div>
           </>
